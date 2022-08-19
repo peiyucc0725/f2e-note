@@ -12,7 +12,14 @@ const lightTheme = {
     text: '#555555',
     pageDrawerBg: '#F4F6F7',
     pageDrawerBorder: '#E6E6E6',
-    background: '#FFFFFF'
+    background: '#FFFFFF',
+    contentText: '#666666',
+    tagBg: '#E9EBF4',
+    tagText: '#2F419B',
+    title: '#555555',
+    cardAngle: '#E9EBF4',
+    searchInputBg: '#E6E6E6',
+    btnBg: '#FFFFFF'
   }
 }
 const darkTheme = {
@@ -23,7 +30,14 @@ const darkTheme = {
     text: '#A3A3A3',
     pageDrawerBg: '#343338',
     pageDrawerBorder: '#666666',
-    background: '#26252A'
+    background: '#26252A',
+    contentText: '#F2F2F2',
+    tagBg: '#343338',
+    tagText: '#FED32C',
+    title: '#FFFFFF',
+    cardAngle: '#FED32C',
+    searchInputBg: '#26252A',
+    btnBg: '#FED32C'
   }
 }
 

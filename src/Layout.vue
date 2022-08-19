@@ -66,8 +66,20 @@
 </script>
     
 <style lang="sass">
+html
+  overflow: -moz-hidden-unscrollable
+  height: 100%
+
+body::-webkit-scrollbar
+  display: none
+
+body
+  -ms-overflow-style: none
+  height: 100%
+  overflow-y: auto
+  
 #app
-  font-family: Myriad Pro, Semibold, Inter, Avenir, Helvetica, Arial, sans-serif
+  font-family: Helvetica, Myriad Pro, Semibold, Inter, Avenir, Helvetica, Arial, sans-serif
 .a-drawer
   .v-navigation-drawer__content, .v-navigation-drawer__append
     padding: 48px 0
@@ -80,6 +92,7 @@
       .add-note
         height: 48px
         color: rgb(var(--v-theme-primary))
+        background-color: rgb(var(--v-theme-btnBg))
         i
           color: rgb(var(--v-theme-primary))
       .v-btn
@@ -126,8 +139,11 @@
     &__header
       padding: 50px 32px 0px 32px
     &__body
-      padding: 32px 32px 50px 32px
+      padding: 32px 32px 17px 32px
   .page-content
     width: calc(100% - 355px)
     min-height: 100vh
+
+.pointer
+  cursor: pointer
 </style>

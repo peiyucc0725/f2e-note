@@ -4,7 +4,7 @@
         prepend-inner-icon="mdi-magnify"
         class="search-input"
         variant="plain"
-        bg-color="#E6E6E6"
+        bg-color="searchInputBg"
         hide-details
         single-line
     ></v-text-field>
