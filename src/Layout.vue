@@ -37,14 +37,32 @@
             <v-btn
               icon="mdi-weather-sunny"
               size="x-small"
-              class="ml-3 mode-active"
+              class="ml-3"
               color="#ffffff"
+              :class="{
+                'mode-active': theme.global.name.value === 'lightTheme',
+              }"
+              :variant="
+                theme.global.name.value === 'darkTheme'
+                  ? 'outlined'
+                  : 'elevated'
+              "
+              @click="onChangeTheme('lightTheme')"
             ></v-btn>
             <v-btn
               icon="mdi-weather-night"
               size="x-small"
               class="ml-3"
-              variant="outlined"
+              color="#ffffff"
+              :class="{
+                'mode-active': theme.global.name.value === 'darkTheme',
+              }"
+              :variant="
+                theme.global.name.value === 'lightTheme'
+                  ? 'outlined'
+                  : 'elevated'
+              "
+              @click="onChangeTheme('darkTheme')"
             ></v-btn>
           </div>
         </v-list-item>
@@ -63,6 +81,19 @@
 </template>
     
 <script setup>
+import { ref, onMounted, watch } from "vue";
+import { useTheme } from "vuetify";
+const theme = useTheme();
+
+onMounted(() => {
+  theme.global.name.value =
+    window.localStorage.getItem("noteTheme") || "lightTheme";
+});
+
+const onChangeTheme = (val) => {
+  window.localStorage.setItem("noteTheme", val);
+  theme.global.name.value = val;
+};
 </script>
     
 <style lang="sass">
@@ -77,7 +108,7 @@ body
   -ms-overflow-style: none
   height: 100%
   overflow-y: auto
-  
+
 #app
   font-family: Helvetica, Myriad Pro, Semibold, Inter, Avenir, Helvetica, Arial, sans-serif
 .a-drawer
@@ -113,7 +144,7 @@ body
       background-color: #ffffff
       .v-list-item-title, i
         color: rgb(var(--v-theme-primary))
-  .v-navigation-drawer__append 
+  .v-navigation-drawer__append
     .v-list-item
       padding-inline-start: 54px !important
       padding-inline-end: 54px !important

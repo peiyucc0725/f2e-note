@@ -19,7 +19,7 @@
       <div class="note-card__content-body">{{ data.content }}</div>
       <div class="note-card__content-footer">
         <div class="footer-tags">
-          <div class="tag-item" v-for="tag in data.tag">{{ tag }}</div>
+          <div class="tag-item" v-for="tag in data.tags">{{ tag }}</div>
         </div>
         <div class="footer-right">
           <div class="footer-file" v-if="data.file">
