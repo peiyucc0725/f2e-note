@@ -2,7 +2,7 @@
   <v-menu bottom>
     <template v-slot:activator="{ props }">
       <div v-bind="{ ...$attrs, ...props }">
-        <v-icon :size="size" class="pointer">{{
+        <v-icon v-if="value" :size="size" class="pointer">{{
           changeIcon ? mappingIcon(value) : defaultIcon
         }}</v-icon>
         <v-icon
@@ -15,7 +15,7 @@
       </div>
     </template>
     <v-list class="icon-select__list">
-      <v-list-item v-for="(item, i) in items" :key="i">
+      <v-list-item v-for="(item, i) in items" :key="i" @click="$emit('change', item)">
         <template v-slot:prepend v-if="item.icon">
           <v-icon :icon="item.icon"></v-icon>
         </template>

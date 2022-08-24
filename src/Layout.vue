@@ -110,8 +110,13 @@ body
   overflow-y: auto
 
 #app
-  font-family: Helvetica, Myriad Pro, Semibold, Inter, Avenir, Helvetica, Arial, sans-serif
+  font-family: Helvetica Neue, Myriad Pro, Inter, Avenir, Arial, sans-serif
 .a-drawer
+  -webkit-user-select: none
+  -khtml-user-select: none
+  -moz-user-select: none
+  -ms-user-select: none
+  user-select: none
   .v-navigation-drawer__content, .v-navigation-drawer__append
     padding: 48px 0
   .v-list, .v-navigation-drawer__content, .v-navigation-drawer__append

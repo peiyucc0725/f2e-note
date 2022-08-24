@@ -64,11 +64,21 @@ const fontSizeItems = ref([
 ]);
 
 const tools = ref([
-  { type: "icon", icon: "format-bold", title: "粗體" },
-  { type: "icon", icon: "format-italic", title: "斜體" },
-  { type: "icon", icon: "format-underline", title: "底線" },
-  { type: "icon", icon: "format-indent-increase", title: "增加縮排" },
-  { type: "icon", icon: "format-indent-decrease", title: "減少縮排" },
+  { type: "icon", icon: "format-bold", title: "粗體", value: "bold" },
+  { type: "icon", icon: "format-italic", title: "斜體", value: "italic" },
+  { type: "icon", icon: "format-underline", title: "底線", value: "underline" },
+  {
+    type: "icon",
+    icon: "format-indent-increase",
+    title: "增加縮排",
+    value: "increase",
+  },
+  {
+    type: "icon",
+    icon: "format-indent-decrease",
+    title: "減少縮排",
+    value: "decrease",
+  },
   {
     type: "select",
     list: [
@@ -79,6 +89,7 @@ const tools = ref([
     ],
     selected: "left",
     title: "對齊",
+    value: "align",
   },
   {
     type: "select",
@@ -91,24 +102,30 @@ const tools = ref([
     ],
     selected: "default",
     title: "行距",
+    value: "spacing",
   },
-  { type: "icon", icon: "format-list-bulleted", title: "項目符號" },
-  { type: "icon", icon: "link", title: "連結" },
-  { type: "icon", icon: "image-outline", title: "圖片" },
-  { type: "icon", icon: "paperclip", title: "附件" },
+  {
+    type: "icon",
+    icon: "format-list-bulleted",
+    title: "項目符號",
+    value: "bulleted",
+  },
+  { type: "icon", icon: "link", title: "連結", value: "link" },
+  { type: "icon", icon: "image-outline", title: "圖片", value: "image" },
+  { type: "icon", icon: "paperclip", title: "附件", value: "file" },
 ]);
 </script>
     
 <style lang="sass">
 .tool-bar
-    display: flex
-    align-items: center
-    padding-bottom: 6px
-    & > *
-        margin-right: 12px
-        cursor: pointer
-        padding: 2px
-        border-radius: 2px
-        &:hover
-            background-color: rgb(var(--v-theme-tagBg))
+  display: flex
+  align-items: center
+  padding-bottom: 6px
+  & > *
+    margin-right: 12px
+    cursor: pointer
+    padding: 2px
+    border-radius: 2px
+    &:hover
+      background-color: rgb(var(--v-theme-tagBg))
 </style>

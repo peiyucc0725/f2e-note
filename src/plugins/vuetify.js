@@ -20,7 +20,8 @@ const lightTheme = {
     cardAngle: '#E9EBF4',
     searchInputBg: '#E6E6E6',
     btnBg: '#FFFFFF',
-    link: '#666666'
+    link: '#666666',
+    listHover: '#E9EBF4'
   }
 }
 const darkTheme = {
@@ -38,7 +39,8 @@ const darkTheme = {
     title: '#FFFFFF',
     cardAngle: '#FED32C',
     searchInputBg: '#26252A',
-    btnBg: '#FED32C'
+    btnBg: '#FED32C',
+    listHover: '#26252A'
   }
 }
 
