@@ -89,7 +89,6 @@
 import { ref, onMounted } from "vue";
 import SearchBar from "./SearchBar.vue";
 import NoteCard from "./NoteCard.vue";
-import ToolBar from "./ToolBar.vue";
 import NoteSummary from "./NoteSummary.vue";
 import DecoupledEditor from "@ckeditor/ckeditor5-build-decoupled-document";
 import "@ckeditor/ckeditor5-build-decoupled-document/build/translations/zh";

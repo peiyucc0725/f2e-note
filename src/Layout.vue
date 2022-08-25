@@ -9,24 +9,13 @@
         </v-btn>
       </v-list-item>
     </v-list>
-    <v-list color="transparent" class="router-list">
+    <v-list class="router-list">
       <v-list-item
-        prepend-icon="mdi-file-document-outline"
-        title="所有筆記"
-      ></v-list-item>
-      <v-list-item prepend-icon="mdi-star" title="捷徑"></v-list-item>
-      <v-list-item prepend-icon="mdi-tag" title="標籤"></v-list-item>
-      <v-list-item
-        prepend-icon="mdi-calendar-blank-outline"
-        title="月曆"
-      ></v-list-item>
-      <v-list-item
-        prepend-icon="mdi-account-multiple"
-        title="與我共用"
-      ></v-list-item>
-      <v-list-item
-        prepend-icon="mdi-delete-outline"
-        title="垃圾桶"
+        v-for="item in items"
+        :to="item.href"
+        :prepend-icon="item.icon"
+        :title="item.text"
+        :value="item.value"
       ></v-list-item>
     </v-list>
     <template v-slot:append>
@@ -84,6 +73,34 @@
 import { ref, onMounted, watch } from "vue";
 import { useTheme } from "vuetify";
 const theme = useTheme();
+const items = ref([
+  {
+    href: "/",
+    text: "所有筆記",
+    value: "all",
+    icon: "mdi-file-document-outline",
+  },
+  { href: "/fav", text: "捷徑", value: "fav", icon: "mdi-star" },
+  { href: "/tag", text: "標籤", value: "tag", icon: "mdi-tag" },
+  {
+    href: "/calendar",
+    text: "月曆",
+    value: "calendar",
+    icon: "mdi-calendar-blank-outline",
+  },
+  {
+    href: "/share",
+    text: "與我共用",
+    value: "share",
+    icon: "mdi-account-multiple",
+  },
+  {
+    href: "/trash",
+    text: "垃圾桶",
+    value: "delete",
+    icon: "mdi-delete-outline",
+  },
+]);
 
 onMounted(() => {
   theme.global.name.value =
@@ -117,6 +134,7 @@ body
   -moz-user-select: none
   -ms-user-select: none
   user-select: none
+  border-right: none !important
   .v-navigation-drawer__content, .v-navigation-drawer__append
     padding: 48px 0
   .v-list, .v-navigation-drawer__content, .v-navigation-drawer__append
@@ -146,9 +164,13 @@ body
     padding-inline-start: 54px !important
     padding-inline-end: 54px !important
     &:hover
-      background-color: #ffffff
-      .v-list-item-title, i
-        color: rgb(var(--v-theme-primary))
+      background-color: rgba(var(--v-theme-pageDrawerBg),.2)
+  .v-list-item--active
+    background-color: rgb(var(--v-theme-btnBg)) !important
+    .v-list-item__overlay
+      opacity: 0 !important
+    .v-list-item-title, i
+      color: rgb(var(--v-theme-primary))
   .v-navigation-drawer__append
     .v-list-item
       padding-inline-start: 54px !important
