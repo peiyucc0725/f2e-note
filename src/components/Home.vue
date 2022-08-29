@@ -1,7 +1,7 @@
 <template>
   <div class="page-drawer">
     <div class="page-drawer__header">
-      <search-bar></search-bar>
+      <search-bar v-model="search" @input="onUpdateSearch"></search-bar>
       <div class="pt-7 pb-4 d-flex align-center justify-space-between">
         <div class="page-drawer__title">所有筆記</div>
         <!-- <text-select :items="typeItems" value="all"></text-select> -->
@@ -15,7 +15,7 @@
     </div>
     <v-divider></v-divider>
     <div class="page-drawer__body" :class="{ 'pa-0': listStyle !== 'card' }">
-      <template v-for="(item, index) in notes" :key="index">
+      <template v-for="(item, index) in filterNotes" :key="index">
         <note-card
           v-if="listStyle === 'card'"
           :data="item"
@@ -59,7 +59,7 @@
             <v-icon size="12">mdi-close</v-icon>
           </div>
         </div>
-        <div class="add-tag">新增 <v-icon size="12">mdi-plus</v-icon></div>
+        <div class="add-tag">新增<v-icon size="12">mdi-plus</v-icon></div>
       </div>
       <div class="page-content__content-wrap" id="editor-content"></div>
       <div class="page-content__file-wrap">
@@ -93,9 +93,11 @@ import NoteSummary from "./NoteSummary.vue";
 import DecoupledEditor from "@ckeditor/ckeditor5-build-decoupled-document";
 import "@ckeditor/ckeditor5-build-decoupled-document/build/translations/zh";
 
+const search = ref('')
 const editorData = ref("");
 const selected = ref(null);
 const listStyle = ref("card");
+const filterNotes = ref([])
 const typeItems = ref([
   {
     title: "所有筆記",
@@ -147,6 +149,7 @@ const listStyleItems = ref([
 ]);
 
 onMounted(() => {
+  filterNotes.value = JSON.parse(JSON.stringify(notes.value))
   DecoupledEditor.create(document.querySelector("#editor-content"), {
     language: "zh",
     placeholder: "請輸入內容",
@@ -223,9 +226,18 @@ const onChangeListStyle = (val) => {
   listStyle.value = val.value;
 };
 
-const onUpdateContent = (val) => {
-  console.log(val);
-};
+const onUpdateSearch = (val) => {
+  if(!search.value || search.value === ''){
+    filterNotes.value = JSON.parse(JSON.stringify(notes.value))
+    return
+  }
+  filterNotes.value = notes.value.filter(item=> {
+    const matchTitle = item.title.includes(search.value)
+    const matchContent = item.content.includes(search.value)
+    const matchTag = item.tags.find(item => item === search.value)
+    return matchTitle || matchContent || matchTag
+  })
+}
 </script>
 
 <style lang="sass">
