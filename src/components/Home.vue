@@ -93,11 +93,11 @@ import NoteSummary from "./NoteSummary.vue";
 import DecoupledEditor from "@ckeditor/ckeditor5-build-decoupled-document";
 import "@ckeditor/ckeditor5-build-decoupled-document/build/translations/zh";
 
-const search = ref('')
+const search = ref("");
 const editorData = ref("");
 const selected = ref(null);
 const listStyle = ref("card");
-const filterNotes = ref([])
+const filterNotes = ref([]);
 const typeItems = ref([
   {
     title: "所有筆記",
@@ -113,7 +113,7 @@ const notes = ref([
   {
     id: 1,
     title: "你可以接受這個數據嗎？？？？？",
-    content: `到那祥林的一的是見了還是，上一了一可以晚飯但看。來吃。看不一月不多立刻？ 上來大學的事什麼。廢噗各位望能莊子的時，我覺過來君的，已經的不的味，版的覺得果然的年，一起著的角上，黑人說什大約舉人嚴重個很不能，決定笑的假洋這個認真⋯到這不適是自錯過一大，土穀以為，感覺例的煩躁她也人問會說。別人的說，在那出來：總算閃的拿來也沒上了大人，大人知道勉強我是衣服。好好他要，然是，許多活擊白的大家動畫兒子十幾，到第這也站著低聲，上的票的時的讓我還有。活了憤怒，之前不用了啊時候還是⋯很開用的希望以後，早安基本居然，聊天。在那走的聽到瞬間，更新，當的裡面柯文手上，自己分鐘這個自己的玩有回：怎麼走著莊子聽到也正不要，好想一張？`,
+    content: `到那祥林的一的是見了還是，上一了一可以晚飯但看。來吃。看不一月不多立刻？<br /><br />上來大學的事什麼。廢噗各位望能莊子的時，我覺過來君的，已經的不的味，版的覺得果然的年，一起著的角上，黑人說什大約舉人嚴重個很不能，決定笑的假洋這個認真⋯到這不適是自錯過一大，土穀以為，感覺例的煩躁她也人問會說。別人的說，在那出來：總算閃的拿來也沒上了大人，大人知道勉強我是衣服。<br /><br />好好他要，然是，許多活擊白的大家動畫兒子十幾，到第這也站著低聲，上的票的時的讓我還有。活了憤怒，之前不用了啊時候還是⋯很開用的希望以後，早安基本居然，聊天。在那走的聽到瞬間，更新，當的裡面柯文手上，自己分鐘這個自己的玩有回：怎麼走著莊子聽到也正不要，好想一張？`,
     tags: ["新聞", "測試"],
     time: "2022/8/18",
     fav: true,
@@ -125,7 +125,7 @@ const notes = ref([
   {
     id: 2,
     title: "中秋烤肉食材這樣搭最好",
-    content: `「可樂，参和，只有中國酒店，如果有機會我想和一個最好的朋友去旅行帶上背包、帶上相機、帶上足夠的錢走走停停拍下每個美`,
+    content: `可樂，参和，只有中國酒店，如果有機會我想和一個最好的朋友去旅行帶上背包、帶上相機、帶上足夠的錢走走停停拍下每個美麗風景晚上的時候在個小酒吧小咖啡聽喝個飲料聊聊天滿天星`,
     tags: ["健康"],
     time: "2022/8/18",
     fav: false,
@@ -134,8 +134,8 @@ const notes = ref([
   {
     id: 3,
     title: "中秋烤肉食材這樣搭最好",
-    content: `「可樂，参和，只有中國酒店，如果有機會我想和一個最好的朋友去旅行帶上背包、帶上相機、帶上足夠的錢走走停停拍下每個美`,
-    tags: ["健康"],
+    content: `可樂，参和，只有中國酒店，如果有機會我想和一個最好的朋友去旅行帶上背包、帶上相機、帶上足夠的錢走走停停拍下每個美麗風景晚上的時候在個小酒吧小咖啡聽喝個飲料聊聊天滿天星`,
+    tags: ["健康", "節日"],
     time: "2022/8/18",
     fav: false,
     file: null,
@@ -149,7 +149,7 @@ const listStyleItems = ref([
 ]);
 
 onMounted(() => {
-  filterNotes.value = JSON.parse(JSON.stringify(notes.value))
+  filterNotes.value = JSON.parse(JSON.stringify(notes.value));
   DecoupledEditor.create(document.querySelector("#editor-content"), {
     language: "zh",
     placeholder: "請輸入內容",
@@ -227,17 +227,17 @@ const onChangeListStyle = (val) => {
 };
 
 const onUpdateSearch = (val) => {
-  if(!search.value || search.value === ''){
-    filterNotes.value = JSON.parse(JSON.stringify(notes.value))
-    return
+  if (!search.value || search.value === "") {
+    filterNotes.value = JSON.parse(JSON.stringify(notes.value));
+    return;
   }
-  filterNotes.value = notes.value.filter(item=> {
-    const matchTitle = item.title.includes(search.value)
-    const matchContent = item.content.includes(search.value)
-    const matchTag = item.tags.find(item => item === search.value)
-    return matchTitle || matchContent || matchTag
-  })
-}
+  filterNotes.value = notes.value.filter((item) => {
+    const matchTitle = item.title.includes(search.value);
+    const matchContent = item.content.includes(search.value);
+    const matchTag = item.tags.find((item) => item === search.value);
+    return matchTitle || matchContent || matchTag;
+  });
+};
 </script>
 
 <style lang="sass">

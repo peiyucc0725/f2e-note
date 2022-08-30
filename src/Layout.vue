@@ -186,7 +186,7 @@ body
     .mode-active
       i
         color: rgb(var(--v-theme-primary))
-.v-main__wrap
+.v-main
   display: flex
   overflow-y: hidden
   .page-drawer

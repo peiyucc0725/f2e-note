@@ -16,7 +16,7 @@
         </div>
         <div class="header-title" :title="data.title">{{ data.title }}</div>
       </div>
-      <div class="note-card__content-body">{{ data.content }}</div>
+      <div class="note-card__content-body" v-html="data.content"></div>
       <div class="note-card__content-footer">
         <div class="footer-tags">
           <div class="tag-item" v-for="tag in data.tags">{{ tag }}</div>
