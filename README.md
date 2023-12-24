@@ -8,7 +8,7 @@ Editor: CKEditor5
 ```
 **UI 設計來源: [The F2E 2nd 參賽者 Letitia73](https://challenge.thef2e.com/user/1930?schedule=4269#works-4269)**
 
-**Live demo: [FreeNote.](https://peiyu0725.github.io/vite-vue/)**
+**Live demo: [FreeNote.](https://peiyu0725.github.io/f2e-note/)**
 
 -------
 ### Node version
