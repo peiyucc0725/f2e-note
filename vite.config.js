@@ -10,5 +10,5 @@ export default defineConfig({
 		vue(),
 		vuetify({ autoImport: true }),
 	],
-	base: '/vite-vue/',
+	base: '/f2e-note/',
 })
