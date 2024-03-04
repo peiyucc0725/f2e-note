@@ -7,7 +7,7 @@ import { fileURLToPath } from 'url';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const options = {
     branch: 'gh-pages',
-    repo: 'git@github.com:peiyu0725/vite-vue.git' // project github repo
+    repo: 'git@github.com:peiyu0725/f2e-note.git' // project github repo
 };
 
 const callback = err => {
