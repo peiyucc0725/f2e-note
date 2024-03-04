@@ -60,6 +60,7 @@ const mappingIcon = (val) => {
       font-weight: 600
       color: rgb(var(--v-theme-contentText))
     &__prepend
+      display: block
       i
         margin-inline-end: 10px !important
         color: rgb(var(--v-theme-contentText))

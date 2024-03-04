@@ -23,7 +23,7 @@
                 padding-top: 4px
                 padding-bottom: 0
             &__prepend-inner
-                padding: 13px 12px 11px 20px
+                padding: 13px 12px 11px 20px !important
                 i
                     color: rgb(var(--v-theme-text))
                     opacity: 1

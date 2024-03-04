@@ -1,7 +1,6 @@
 <template>
   <div :style="{ width: `${width}` }">
     <v-select
-      v-model="value"
       v-bind="$attrs"
       :items="items"
       :menu-props="{ 'content-class': 'text-select-menu' }"
@@ -16,7 +15,6 @@
     
 <script setup>
 defineProps({
-  value: [String, Number],
   items: Array,
   width: String
 });
